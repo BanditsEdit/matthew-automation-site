@@ -1,9 +1,12 @@
 "use client";
 import { useState } from "react";
+import { addMinutes } from "date-fns";
 import Modal from "./components/Modal";
+import { BookingCalendar } from "@/components/booking-calendar";
 
 export default function Page() {
   const [contactOpen, setContactOpen] = useState(false);
+  const [contactPackage, setContactPackage] = useState<string | null>(null);
 
   return (
     <main className="bg-neutral-950 text-neutral-100 min-h-screen">
@@ -25,11 +28,10 @@ export default function Page() {
             </a>
 
             <a
-              href="https://www.upwork.com/freelancers/~01e026b27ce21dc879"
-              target="_blank"
+              href="#advisory"
               className="px-4 py-2 border border-green-500 rounded-md text-green-400 hover:bg-green-500/10 transition-colors font-medium"
             >
-              <span className="font-bold">Up</span> Upwork
+              Packages
             </a>
           </div>
         </div>
@@ -101,6 +103,155 @@ export default function Page() {
             />
           </div>
 
+        </section>
+
+        {/* ==================== AI SYSTEMS ADVISORY ==================== */}
+        <section id="advisory" className="mb-32 scroll-mt-24">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold mb-3">AI Systems Advisory</h2>
+            <p className="text-xl text-neutral-400 mb-6">
+              Helping teams turn AI experimentation into reliable operational systems.
+            </p>
+            <p className="text-neutral-300 max-w-2xl mx-auto leading-relaxed">
+              I work with companies that are actively exploring AI and automation but need help turning ideas into practical systems. My role combines consulting, architecture, and hands-on automation expertise to help teams design, troubleshoot, and scale AI-driven workflows.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Card 1 — Hourly Advisory */}
+            <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 rounded-2xl p-8 flex flex-col">
+              <h3 className="text-xl font-semibold mb-2">Hourly Advisory</h3>
+              <p className="text-neutral-400 text-sm mb-6">
+                Flexible support for teams that need occasional help with AI workflows or automation challenges.
+              </p>
+              <ul className="space-y-3 text-sm text-neutral-300 mb-8 flex-1">
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>AI workflow and automation advice</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Architecture and tooling guidance</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Troubleshooting existing workflows</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Reviewing automation ideas before building</span>
+                </li>
+              </ul>
+              <p className="text-2xl font-bold mb-6">£150 <span className="text-base font-normal text-neutral-400">/ hour</span></p>
+              <button
+                type="button"
+                onClick={() => { setContactPackage("Hourly Advisory"); setContactOpen(true); }}
+                className="w-full py-3 px-4 rounded-lg border border-neutral-600 text-neutral-200 hover:border-blue-500 hover:bg-blue-500/10 hover:text-blue-400 transition-colors font-medium"
+              >
+                Email to Schedule
+              </button>
+            </div>
+
+            {/* Card 2 — AI Systems Advisor (Recommended) */}
+            <div className="relative bg-gradient-to-br from-neutral-900 to-neutral-950 border-2 border-blue-500/50 rounded-2xl p-8 flex flex-col shadow-lg shadow-blue-500/10">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-semibold">
+                  Most Popular
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2 mt-1">AI Systems Advisor</h3>
+              <p className="text-neutral-400 text-sm mb-6">
+                Regular support to help your team turn AI experiments into reliable operational systems.
+              </p>
+              <ul className="space-y-3 text-sm text-neutral-300 mb-8 flex-1">
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Weekly advisory call (30–60 minutes)</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Workflow and automation reviews</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Architecture and tooling guidance</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Help diagnosing blockers</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Light async support between sessions</span>
+                </li>
+              </ul>
+              <p className="text-2xl font-bold mb-6">£500 <span className="text-base font-normal text-neutral-400">/ month</span></p>
+              <button
+                type="button"
+                onClick={() => { setContactPackage("AI Systems Advisor"); setContactOpen(true); }}
+                className="w-full py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium transition-colors"
+              >
+                Email to Schedule
+              </button>
+            </div>
+
+            {/* Card 3 — Strategic AI Partner */}
+            <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 rounded-2xl p-8 flex flex-col">
+              <h3 className="text-xl font-semibold mb-2">Strategic AI Partner</h3>
+              <p className="text-neutral-400 text-sm mb-6">
+                For teams building multiple AI systems who want ongoing architectural and strategic input.
+              </p>
+              <ul className="space-y-3 text-sm text-neutral-300 mb-8 flex-1">
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Weekly advisory session (up to 90 minutes)</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>System architecture guidance</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Priority troubleshooting support</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Identification of high-value automation opportunities</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-400 shrink-0">•</span>
+                  <span>Strategic guidance as your AI capability grows</span>
+                </li>
+              </ul>
+              <p className="text-2xl font-bold mb-6">£900 <span className="text-base font-normal text-neutral-400">/ month</span></p>
+              <button
+                type="button"
+                onClick={() => { setContactPackage("Strategic AI Partner"); setContactOpen(true); }}
+                className="w-full py-3 px-4 rounded-lg border border-neutral-600 text-neutral-200 hover:border-blue-500 hover:bg-blue-500/10 hover:text-blue-400 transition-colors font-medium"
+              >
+                Email to Schedule
+              </button>
+            </div>
+          </div>
+
+          {/* How the advisory sessions work */}
+          <div className="mt-20 max-w-2xl mx-auto text-center">
+            <h3 className="text-lg font-semibold text-neutral-300 mb-8">How the advisory sessions work</h3>
+            <ol className="space-y-6 text-neutral-400">
+              <li className="flex items-start gap-4 text-left">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-sm font-medium text-neutral-200">1</span>
+                <span>Share your current workflow or challenge</span>
+              </li>
+              <li className="flex items-start gap-4 text-left">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-sm font-medium text-neutral-200">2</span>
+                <span>We review the system together</span>
+              </li>
+              <li className="flex items-start gap-4 text-left">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-sm font-medium text-neutral-200">3</span>
+                <span>You leave with clear next steps for your team</span>
+              </li>
+            </ol>
+          </div>
         </section>
 
         {/* ==================== MY WORK ==================== */}
@@ -268,6 +419,38 @@ export default function Page() {
             }
           />
 
+          {/* ---------- Project 6: AI Ledger Reconciliation ---------- */}
+          <ProjectCard
+            title="AI Ledger Reconciliation & Document Processing System"
+            desc="An AI-powered financial operations system that ingests documents, extracts structured data, reconciles ledger entries, and routes cases into actionable queues — reducing manual review and human error."
+            tags={[
+              { label: "React", emoji: "~" },
+              { label: "TypeScript", emoji: "~" },
+              { label: "Python FastAPI", emoji: "~" },
+              { label: "AI document analysis", emoji: "~" },
+              { label: "Automation agents", emoji: "~" },
+              { label: "Workflow orchestration", emoji: "~" },
+            ]}
+            caseStudy={
+              <CaseStudy
+                summary="I built an end-to-end AI-powered financial operations system that ingests documents, uses AI to extract and validate data, reconciles ledger entries, and routes cases into actionable queues. The system reduces manual review and human error while scaling operational throughput, with automation agents suggesting next actions and humans reviewing where needed."
+                problem="Financial operations teams spend most of their time on manual, repetitive work: reviewing incoming documents, checking ledger entries, reconciling transactions, and flagging missing or incorrect data. This process is slow, repetitive, and prone to human error, and it does not scale as volume grows."
+                solution={[
+                  { title: "Document ingestion and AI extraction", detail: "The system ingests incoming financial documents and uses AI to extract structured data for reconciliation and routing, with confidence scoring so teams can prioritise low-confidence items." },
+                  { title: "Automated reconciliation and validation", detail: "A validation engine automatically reconciles ledger entries and flags inconsistencies, so operations staff focus on exceptions rather than routine matching." },
+                  { title: "Intelligent case routing", detail: "Routing logic categorises each case into queues: Needs Attention, Waiting for Client, Problems, and Processed Today. Automation agents decide the next suggested action; humans confirm or override for high-stakes decisions." },
+                  { title: "Dashboard and human-in-the-loop", detail: "A React/TypeScript UI provides case queues, confidence scoring, one-click actions, and tooltips for quick guidance. Operations teams process cases quickly with full status tracking and auditability." },
+                ]}
+                results={[
+                  "Reduces manual reconciliation work and speeds up financial operations.",
+                  "Lowers human error by automating extraction, validation, and routing.",
+                  "Allows teams to process higher volumes without proportionally increasing headcount.",
+                  "Clear queues and confidence scoring help prioritise work and train new staff faster.",
+                ]}
+              />
+            }
+          />
+
         </section>
 
         {/* ==================== TECHNOLOGIES ==================== */}
@@ -338,29 +521,7 @@ export default function Page() {
         </section>
 
         {/* ==================== SCHEDULE ==================== */}
-        <section id="schedule" className="mb-20">
-          <h2 className="text-4xl font-bold mb-4 text-center">
-            Schedule a Call
-          </h2>
-          <p className="text-neutral-400 text-center mb-10 max-w-xl mx-auto">
-            Let&apos;s discuss your automation needs and how I can help streamline your business processes.
-          </p>
-
-          <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 rounded-xl p-4 max-w-3xl mx-auto">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `
-                  <iframe
-                    src="https://sub.banditsaimarketing.com/widget/booking/aXzBDvGylBFULktsNfIU"
-                    style="width:100%;height:650px;border:none;overflow:hidden;"
-                    scrolling="yes"
-                    id="eEsqiv8zEit2PEuKosXE_1769130888350">
-                  </iframe>
-                `,
-              }}
-            />
-          </div>
-        </section>
+        <ScheduleSection />
 
       </div>
 
@@ -384,7 +545,11 @@ export default function Page() {
       </button>
 
       {/* CONTACT MODAL */}
-      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
+      <ContactModal
+        isOpen={contactOpen}
+        onClose={() => { setContactOpen(false); setContactPackage(null); }}
+        selectedPackage={contactPackage}
+      />
     </main>
   );
 }
@@ -394,19 +559,131 @@ export default function Page() {
    REUSABLE COMPONENTS
    ================================================================ */
 
+/* ---------- SCHEDULE SECTION (Calendar + Time Presets → Google Meet) ---------- */
+const MEETING_DURATION_MINUTES = 30;
+
+function ScheduleSection() {
+  const [slot, setSlot] = useState<Date | null>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!slot || !name.trim() || !email.trim()) return;
+    setStatus("loading");
+    setMessage("");
+    try {
+      const start = slot.toISOString();
+      const end = addMinutes(slot, MEETING_DURATION_MINUTES).toISOString();
+      const res = await fetch("/api/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          startDateTime: start,
+          endDateTime: end,
+          name: name.trim(),
+          email: email.trim(),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setStatus("error");
+        setMessage(data.message || data.error || "Booking failed. Please try again or email me to schedule.");
+        return;
+      }
+      setStatus("success");
+      if (data.emailError) {
+        setMessage(`Meeting booked! Confirmation email could not be sent: ${data.emailError}. Check your calendar for the event.`);
+      } else {
+        setMessage(data.meetLink ? "Meeting booked! Check your email for the Google Meet link." : "Meeting booked! Check your email for details.");
+      }
+      setSlot(null);
+      setName("");
+      setEmail("");
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Please try again or email me to schedule.");
+    }
+  };
+
+  return (
+    <section id="schedule" className="mb-20">
+      <h2 className="text-4xl font-bold mb-4 text-center">
+        Schedule a Call
+      </h2>
+      <p className="text-neutral-400 text-center mb-10 max-w-xl mx-auto">
+        Let&apos;s discuss your automation needs and how I can help streamline your business processes.
+      </p>
+
+      <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 rounded-xl p-8 max-w-lg mx-auto">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium text-neutral-300 mb-2">Date & time</label>
+            <BookingCalendar
+              value={slot}
+              onChange={setSlot}
+              timePresets={["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"]}
+              placeholder="Pick date and time"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-neutral-300 mb-2">Name</label>
+            <input
+              type="text"
+              required
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-neutral-300 mb-2">Email</label>
+            <input
+              type="email"
+              required
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
+            />
+          </div>
+          {message && (
+            <p className={status === "error" ? "text-red-400 text-sm" : "text-green-400 text-sm"}>
+              {message}
+            </p>
+          )}
+          <button
+            type="submit"
+            disabled={status === "loading" || !slot}
+            className="w-full py-3 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg font-semibold transition-colors"
+          >
+            {status === "loading" ? "Booking…" : "Book Google Meet"}
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- PROJECT CARD ---------- */
 function ProjectCard({
   title,
   desc,
   tags,
   caseStudy,
+  caseStudyLink,
 }: {
   title: string;
   desc: string;
   tags: { label: string; emoji: string }[];
   caseStudy?: React.ReactNode;
+  caseStudyLink?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const showModal = caseStudy && !caseStudyLink;
   return (
     <>
       <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 rounded-2xl p-10 shadow-xl hover:border-neutral-700 transition-colors">
@@ -424,7 +701,15 @@ function ProjectCard({
           ))}
         </div>
 
-        {caseStudy && (
+        {caseStudyLink && (
+          <a
+            href={caseStudyLink}
+            className="inline-block px-6 py-2.5 bg-blue-600 hover:bg-blue-500 rounded-lg font-medium transition-colors text-white"
+          >
+            Learn More
+          </a>
+        )}
+        {showModal && (
           <button
             onClick={() => setOpen(true)}
             className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 rounded-lg font-medium transition-colors text-white"
@@ -434,7 +719,7 @@ function ProjectCard({
         )}
       </div>
 
-      {caseStudy && (
+      {showModal && (
         <Modal
           title={title}
           isOpen={open}
@@ -569,29 +854,51 @@ function ReviewCard({
 function ContactModal({
   isOpen,
   onClose,
+  selectedPackage = null,
 }: {
   isOpen: boolean;
   onClose: () => void;
+  selectedPackage?: string | null;
 }) {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // Simulate send — replace with actual API call (e.g. mailto, webhook, or API route)
-    setTimeout(() => {
-      setSending(false);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          ...(selectedPackage && { selectedPackage }),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error ?? "Failed to send. Please try again.");
+        setSending(false);
+        return;
+      }
       setSent(true);
+      setFormData({ name: "", email: "", message: "" });
       setTimeout(() => {
         setSent(false);
-        setFormData({ name: "", email: "", message: "" });
         onClose();
       }, 2000);
-    }, 800);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -613,10 +920,21 @@ function ContactModal({
 
         <h2 className="text-xl font-bold mb-6">Contact me</h2>
 
+        {selectedPackage && (
+          <p className="text-xs text-neutral-500 mb-4">
+            Inquiring about: <span className="text-neutral-400">{selectedPackage}</span>
+          </p>
+        )}
+
         {sent ? (
           <p className="text-green-400 text-center py-8 text-lg">Message sent! I&apos;ll get back to you soon.</p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
+            {error && (
+              <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/30 rounded-lg px-4 py-2">
+                {error}
+              </p>
+            )}
             <input
               type="text"
               placeholder="Name"
@@ -641,6 +959,11 @@ function ContactModal({
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
+            {selectedPackage && (
+              <p className="text-xs text-neutral-500">
+                Your message will be sent with a note that you&apos;re inquiring about the <strong className="text-neutral-400">{selectedPackage}</strong> package.
+              </p>
+            )}
             <button
               type="submit"
               disabled={sending}
