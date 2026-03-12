@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const TITLE = "AI Ledger Reconciliation & Document Processing System";
+const TITLE = "AI Operations Platform for Accounting Firms";
 
 const SUMMARY =
   "I built an end-to-end AI-powered financial operations system that ingests documents, uses AI to extract and validate data, reconciles ledger entries, and routes cases into actionable queues. The system reduces manual review and human error while scaling operational throughput, with automation agents suggesting next actions and humans reviewing where needed.";
@@ -39,7 +39,7 @@ const RESULTS = [
 ];
 
 export const metadata = {
-  title: "AI Ledger Reconciliation & Document Processing | Matthew Odojukan",
+  title: "AI Operations Platform for Accounting Firms | Matthew Odojukan",
   description:
     "Case study: AI-powered financial operations system for document processing, ledger reconciliation, and automated case routing.",
 };

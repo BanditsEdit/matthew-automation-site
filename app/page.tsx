@@ -421,7 +421,7 @@ export default function Page() {
 
           {/* ---------- Project 6: AI Ledger Reconciliation ---------- */}
           <ProjectCard
-            title="AI Ledger Reconciliation & Document Processing System"
+            title="AI Operations Platform for Accounting Firms"
             desc="An AI-powered financial operations system that ingests documents, extracts structured data, reconciles ledger entries, and routes cases into actionable queues — reducing manual review and human error."
             tags={[
               { label: "React", emoji: "~" },
